@@ -56,6 +56,7 @@ export default function Contact() {
                 </a>
                 <a href={config.socials.facebook} target="_blank" rel="noopener noreferrer" className="bg-foreground text-background p-4 rounded-full hover:bg-accent transition-colors">
                   <span className="font-bold">FB</span>
+                </a>
               </div>
             </div>
           </div>

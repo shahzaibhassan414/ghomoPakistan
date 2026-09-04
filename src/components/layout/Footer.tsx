@@ -18,10 +18,9 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a href={config.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">IG</a>
               <a href={config.socials.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">FB</a>
-              <a href={config.socials.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">YT</a>
             </div>
           </div>
-
+          
           <div>
             <h3 className="text-white font-lora font-semibold text-xl mb-4">Quick Links</h3>
             <ul className="space-y-3">
@@ -32,7 +31,7 @@ export default function Footer() {
               <li><Link href="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
             </ul>
           </div>
-
+          
           <div>
             <h3 className="text-white font-lora font-semibold text-xl mb-4">Contact</h3>
             <ul className="space-y-4">
