@@ -1,54 +1,132 @@
+"use client";
+
+import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { config } from "@/config";
+import { 
+  Sparkles, 
+  ShieldCheck, 
+  Users, 
+  Heart, 
+  MapPin, 
+  Award, 
+  Compass, 
+  CheckCircle2,
+  ArrowRight,
+  Send
+} from "lucide-react";
 
-export default function About() {
+export default function AboutPage() {
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          
-          <div className="w-full lg:w-1/2 relative h-[500px] md:h-[700px] rounded-[2rem] overflow-hidden shadow-2xl">
-            <Image 
-              src={config.images.journal} 
-              alt="About Us" 
-              fill 
+    <div className="bg-[#f8fafc] min-h-screen pt-28 pb-24">
+      {/* Header */}
+      <div className="bg-[#002136] text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-10 sm:mb-16">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#00b2d4]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-3 sm:mb-4">
+            We Are {config.businessName}
+          </h1>
+          <p className="text-slate-200 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
+            More than just an itinerary company. We are a community of passionate road-trippers, storytellers, and mountain enthusiasts on a mission to showcase the raw wonder of Pakistan.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
+        {/* Story Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-200">
+            <Image
+              src="/images/fairy_meadows.jpg"
+              alt="Our Story in Pakistan"
+              fill
               className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 border-[1px] border-white/20 rounded-[2rem] m-4 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#00b2d4]">Born in Lahore & Islamabad</span>
+              <h3 className="text-xl font-bold">Uniting Travelers Across Pakistan</h3>
+            </div>
           </div>
 
-          <div className="w-full lg:w-1/2">
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-6">
-              Our Story
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-serif text-accent mb-8 leading-tight">
-              More than just a travel agency. We are storytellers.
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-4xl font-black text-[#003554] tracking-tight">
+              The Road Is Always Better Together
             </h2>
-            
-            <div className="space-y-6 text-foreground/80 font-light text-lg leading-relaxed">
-              <p>
-                {config.businessName} started with a simple passion: to explore the unseen beauty of Pakistan and share it with the world. What began as a personal travel journal has evolved into a thriving community of adventurers.
-              </p>
-              <p>
-                We believe that travel is not just about visiting places; it&apos;s about the people you meet, the food you taste, and the stories you bring back. That&apos;s why our group tours are designed to feel like traveling with friends rather than a corporate excursion.
-              </p>
-              <p>
-                From the bustling food streets of Lahore to the serene, majestic peaks of Skardu and Hunza, we curate experiences that are authentic, safe, and unforgettable.
-              </p>
-            </div>
+            <p className="text-slate-600 text-base leading-relaxed">
+              We started with a vision to break away from traditional boring tourist buses. We wanted trips where music plays, strangers become confidants over campfire tea, paintbrushes come alive on alpine summits, and safety is never compromised.
+            </p>
+            <p className="text-slate-600 text-base leading-relaxed">
+              Whether trekking to the reflection pool of Nanga Parbat, navigating the roaring jeep trails of Kumrat, or enjoying 5-star heritage chalets in Skardu, every journey is curated with love, care, and attention to detail.
+            </p>
 
-            <div className="mt-12">
-              <a 
-                href={config.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-transparent border-2 border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-4 rounded-full text-lg font-medium transition-all duration-300"
+            <div className="pt-4 flex flex-wrap gap-4">
+              <Link
+                href="/packages"
+                className="px-6 py-3.5 rounded-full bg-[#00b2d4] hover:bg-[#003554] text-white font-extrabold text-sm shadow-lg transition-all flex items-center gap-2"
               >
-                Travel With Us
-              </a>
+                <span>Explore Upcoming Trips</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
+        </div>
 
+        {/* 4 Pillars of Excellence */}
+        <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-lg border border-slate-200/80">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h3 className="text-2xl sm:text-3xl font-black text-[#003554] mb-3">
+              Why Travelers Love Wandering With Us
+            </h3>
+            <p className="text-slate-600 text-sm">
+              Our core commitments that ensure every single trip is safe, joyful, and memorable.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <ShieldCheck className="w-8 h-8 text-[#00b2d4]" />,
+                title: "100% Female & Family Safe",
+                desc: "Dedicated female tour captains, verified hotels, and zero tolerance for harassment.",
+              },
+              {
+                icon: <Award className="w-8 h-8 text-[#00b2d4]" />,
+                title: "Certified Mountain Leads",
+                desc: "First-aid trained captains with 10+ years of northern terrain and high-altitude experience.",
+              },
+              {
+                icon: <Heart className="w-8 h-8 text-[#00b2d4]" />,
+                title: "Vibrant Community Vibes",
+                desc: "RoadRang games, bonfire jamming, acoustic nights, and creative painting sessions.",
+              },
+              {
+                icon: <Compass className="w-8 h-8 text-[#00b2d4]" />,
+                title: "Zero Hidden Costs",
+                desc: "Transparent inclusions with quality transport, meals, tolls, and comfortable stays.",
+              },
+            ].map((pillar, i) => (
+              <div key={i} className="flex flex-col items-center text-center p-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#ebfafc] flex items-center justify-center mb-4">
+                  {pillar.icon}
+                </div>
+                <h4 className="font-extrabold text-base text-[#003554] mb-2">{pillar.title}</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">{pillar.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="bg-[#002136] text-white rounded-3xl p-8 sm:p-12 shadow-xl grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+          {config.stats.map((st, i) => (
+            <div key={i}>
+              <div className="text-3xl sm:text-4xl font-black text-[#00b2d4] mb-1">{st.value}</div>
+              <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">{st.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

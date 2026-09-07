@@ -28,6 +28,16 @@ const config: Config = {
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
+        brand: {
+          teal: "#00b2d4",
+          cyan: "#0ecaee",
+          navy: "#003554",
+          darkNavy: "#002136",
+          orange: "#f7630c",
+          orangeLight: "#ff7828",
+          ice: "#ebfafc",
+          iceLight: "#f0fbfd",
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -35,18 +45,9 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-outfit)", "sans-serif"],
-        serif: ["var(--font-playfair)", "serif"],
+        sans: ["var(--font-jakarta)", "var(--font-outfit)", "sans-serif"],
+        display: ["var(--font-outfit)", "sans-serif"],
       },
-      keyframes: {
-        pulse: {
-          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-          '50%': { transform: 'scale(1.05)', opacity: '0.8' },
-        }
-      },
-      animation: {
-        pulse: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      }
     },
   },
   plugins: [],

@@ -1,94 +1,211 @@
-import Image from "next/image";
-import Link from "next/link";
-import { config } from "@/config";
+"use client";
 
-export default function Packages() {
-  const packages = [
-    {
-      id: 1,
-      title: "Hunza Valley Expedition",
-      duration: "7 Days / 6 Nights",
-      price: "PKR 45,000",
-      image: config.images.package,
-      description: "Explore the breathtaking landscapes of Hunza, including Attabad Lake, Passu Cones, and Khunjerab Pass.",
-    },
-    {
-      id: 2,
-      title: "Skardu & Deosai Plains",
-      duration: "6 Days / 5 Nights",
-      price: "PKR 55,000",
-      image: config.images.hero,
-      description: "Discover the cold desert of Skardu, the stunning Shangrila Resort, and the vast Deosai National Park.",
-    },
-    {
-      id: 3,
-      title: "Fairy Meadows Adventure",
-      duration: "5 Days / 4 Nights",
-      price: "PKR 40,000",
-      image: config.images.journal,
-      description: "Trek to the base camp of Nanga Parbat and experience the unparalleled beauty of Fairy Meadows.",
-    },
-    {
-      id: 4,
-      title: "Swat Valley Retreat",
-      duration: "4 Days / 3 Nights",
-      price: "PKR 35,000",
-      image: config.images.package,
-      description: "Relax in the 'Switzerland of the East' with visits to Kalam, Malam Jabba, and Mahodand Lake.",
-    },
-  ];
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { config, TourPackage } from "@/config";
+import TourCard from "@/components/tours/TourCard";
+import BookingModal from "@/components/tours/BookingModal";
+import { 
+  Search, 
+  Filter, 
+  Sparkles, 
+  Calendar, 
+  MapPin, 
+  SlidersHorizontal,
+  Compass,
+  ArrowUpDown
+} from "lucide-react";
+
+function PackagesContent() {
+  const searchParams = useSearchParams();
+  const initialDest = searchParams.get("dest") || "";
+  const initialCat = searchParams.get("cat") || "all";
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(initialCat);
+  const [selectedDest, setSelectedDest] = useState(initialDest);
+  const [sortBy, setSortBy] = useState<"featured" | "price-low" | "price-high" | "duration">("featured");
+  const [selectedTourForBooking, setSelectedTourForBooking] = useState<TourPackage | null>(null);
+
+  useEffect(() => {
+    if (initialCat) setSelectedCategory(initialCat);
+    if (initialDest) setSelectedDest(initialDest);
+  }, [initialCat, initialDest]);
+
+  // Filtering
+  const filteredTours = config.tours.filter((tour) => {
+    const matchesSearch = 
+      tour.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tour.destination.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tour.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+
+    const matchesCategory = 
+      selectedCategory === "all" || tour.category === selectedCategory;
+
+    const matchesDest = 
+      !selectedDest || tour.destination.toLowerCase().includes(selectedDest.toLowerCase());
+
+    return matchesSearch && matchesCategory && matchesDest;
+  });
+
+  // Sorting
+  const sortedTours = [...filteredTours].sort((a, b) => {
+    if (sortBy === "price-low") return a.price - b.price;
+    if (sortBy === "price-high") return b.price - a.price;
+    if (sortBy === "duration") return b.days - a.days;
+    return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+  });
 
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-6">
-            Curated Experiences
+    <div className="bg-[#f8fafc] min-h-screen pt-28 pb-24">
+      {/* Page Header */}
+      <div className="bg-[#002136] text-white py-12 sm:py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-8 sm:mb-12">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#00b2d4]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-3">
+            All Upcoming Adventures
           </h1>
-          <p className="text-lg text-foreground/80 font-light leading-relaxed">
-            Every journey we offer is hand-crafted to provide a deeply authentic and unforgettable experience. Choose your next adventure.
+          <p className="text-slate-300 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Browse our scheduled group departures, weekend getaways, and luxury by-air expeditions across Pakistan.
           </p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-          {packages.map((pkg) => (
-            <div key={pkg.id} className="group relative h-[500px] rounded-[2rem] overflow-hidden cursor-pointer shadow-xl">
-              <Image 
-                src={pkg.image} 
-                alt={pkg.title} 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-110" 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Controls & Filter Bar */}
+        <div className="bg-white p-4 sm:p-6 rounded-3xl shadow-sm border border-slate-200/80 mb-10 space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+            {/* Live Search Input */}
+            <div className="md:col-span-5 relative">
+              <input
+                type="text"
+                placeholder="Search by tour, destination, or activity..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 focus:border-[#00b2d4] focus:ring-2 focus:ring-[#00b2d4]/20 text-sm font-medium text-slate-800"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-95 group-hover:opacity-100 transition-opacity"></div>
-              
-              <div className="absolute bottom-0 left-0 w-full p-8 md:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <div className="flex justify-between items-end mb-4">
-                  <div>
-                    <p className="text-accent text-sm uppercase tracking-widest mb-2 font-medium">{pkg.duration}</p>
-                    <h3 className="text-3xl font-serif text-white mb-2">{pkg.title}</h3>
-                  </div>
-                  <p className="text-white font-serif text-xl">{pkg.price}</p>
-                </div>
-                
-                <p className="text-white/80 font-light md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mb-6">
-                  {pkg.description}
-                </p>
-                
-                <Link 
-                  href={config.whatsappLink} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-[#25D366] text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-foreground transition-all duration-300 md:opacity-0 group-hover:opacity-100 delay-200"
-                >
-                  Book on WhatsApp
-                </Link>
-              </div>
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-4" />
             </div>
-          ))}
+
+            {/* Destination Dropdown */}
+            <div className="md:col-span-4 relative">
+              <select
+                value={selectedDest}
+                onChange={(e) => setSelectedDest(e.target.value)}
+                className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 focus:border-[#00b2d4] text-sm font-semibold text-slate-800 cursor-pointer"
+              >
+                <option value="">All Mountain Destinations</option>
+                <option value="Fairy Meadows">Fairy Meadows & Nanga Parbat</option>
+                <option value="Hunza">Hunza Valley & Passu</option>
+                <option value="Skardu">Skardu & Deosai Plains</option>
+                <option value="Kumrat">Kumrat Valley</option>
+                <option value="Swat">Swat & Malam Jabba</option>
+                <option value="Sharan">Sharan Forest</option>
+              </select>
+            </div>
+
+            {/* Sort By Dropdown */}
+            <div className="md:col-span-3 relative">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as any)}
+                className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 focus:border-[#00b2d4] text-sm font-semibold text-slate-800 cursor-pointer"
+              >
+                <option value="featured">Sort: Featured First</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="duration">Duration: Longest First</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Category Tabs */}
+          <div className="flex items-center gap-2 overflow-x-auto pt-2 border-t border-slate-100 hide-scrollbar">
+            {[
+              { id: "all", label: "All Tours" },
+              { id: "group", label: "Group Tours" },
+              { id: "weekend", label: "Weekend Escapes" },
+              { id: "by-air", label: "By Air Luxury" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedCategory(tab.id)}
+                className={`px-4 py-2 rounded-full text-xs font-extrabold tracking-wide uppercase transition-all whitespace-nowrap ${
+                  selectedCategory === tab.id
+                    ? "bg-[#00b2d4] text-white shadow-md"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
+        {/* Tours Count & Grid */}
+        <div className="mb-6 flex items-center justify-between">
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+            Showing <strong className="text-slate-900">{sortedTours.length}</strong> adventurous journeys
+          </span>
+          {(searchQuery || selectedDest || selectedCategory !== "all") && (
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedDest("");
+                setSelectedCategory("all");
+              }}
+              className="text-xs font-bold text-[#00b2d4] hover:underline"
+            >
+              Reset Filters
+            </button>
+          )}
+        </div>
+
+        {sortedTours.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sortedTours.map((tour) => (
+              <TourCard
+                key={tour.id}
+                tour={tour}
+                onBookNow={(t) => setSelectedTourForBooking(t)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-sm max-w-lg mx-auto">
+            <Compass className="w-12 h-12 text-slate-300 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-slate-800 mb-2">No matching tours found</h3>
+            <p className="text-sm text-slate-500 mb-6">
+              Try changing your search term or filter settings, or craft a custom trip according to your schedule.
+            </p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedDest("");
+                setSelectedCategory("all");
+              }}
+              className="px-6 py-2.5 rounded-full bg-[#00b2d4] text-white font-bold text-xs uppercase"
+            >
+              Reset All Filters
+            </button>
+          </div>
+        )}
       </div>
+
+      {/* Booking Modal */}
+      <BookingModal
+        tour={selectedTourForBooking}
+        isOpen={!!selectedTourForBooking}
+        onClose={() => setSelectedTourForBooking(null)}
+      />
     </div>
+  );
+}
+
+export default function PackagesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen pt-32 text-center">Loading tours catalog...</div>}>
+      <PackagesContent />
+    </Suspense>
   );
 }

@@ -1,117 +1,262 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { config } from "@/config";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { config } from "@/config";
+import { 
+  Menu, 
+  X, 
+  Phone, 
+  MapPin, 
+  Compass, 
+  Sparkles, 
+  MessageCircle,
+  ChevronRight,
+  Send
+} from "lucide-react";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Packages", href: "/packages" },
-    { name: "Journal", href: "/journal" },
+    { name: "Group Tours", href: "/packages" },
+    { name: "Craft Your Tour", href: "/craft-your-tour" },
+    { name: "By Air Escapes", href: "/by-air" },
+    { name: "Moments", href: "/gallery" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <nav className={`fixed w-full top-0 z-40 transition-all duration-300 ${scrolled ? "bg-[#FDFBF7] border-b border-[#EAE3D9] shadow-sm py-2" : "bg-transparent py-6"}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 relative overflow-hidden rounded-full bg-white shadow-md">
-                <Image src={config.images.logo} alt="Logo" fill className="object-cover" />
-              </div>
-              <span className={`font-serif font-bold text-2xl tracking-wide transition-colors ${scrolled || pathname !== '/' ? 'text-foreground' : 'text-white text-shadow'}`}>
-                {config.businessName}
-              </span>
+    <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+      {/* Top micro-bar */}
+      <div className={`hidden lg:block transition-all duration-300 text-xs ${
+        isScrolled 
+          ? "bg-[#002136] text-slate-300 py-1.5 border-b border-white/5" 
+          : "bg-black/40 backdrop-blur-sm text-white/90 py-2 border-b border-white/10"
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-1.5">
+              <Phone className="w-3.5 h-3.5 text-[#00b2d4] shrink-0" />
+              <a href={`tel:${config.phone}`} className="hover:text-white transition-colors font-medium">
+                {config.hotlineDisplay}
+              </a>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-[#00b2d4] shrink-0" />
+              <span className="font-medium">Lahore, Pakistan</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="text-white/90 font-medium text-xs">✨ Departures Every Thursday & Friday</span>
+            <span className="text-white/30">|</span>
+            <Link 
+              href={config.whatsappLink} 
+              target="_blank" 
+              className="text-[#00b2d4] hover:text-white font-bold flex items-center gap-1"
+            >
+              WhatsApp Support
             </Link>
           </div>
-          
-          <div className="hidden md:flex items-center space-x-10">
+        </div>
+      </div>
+
+      {/* Main Nav */}
+      <div className={`transition-all duration-300 ${
+        isScrolled 
+          ? "bg-white/95 backdrop-blur-md shadow-md py-2.5 sm:py-3 text-slate-900 border-b border-slate-200/70" 
+          : "bg-gradient-to-b from-black/85 via-black/40 to-transparent py-3 sm:py-4 text-white"
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white shadow-md group-hover:scale-105 transition-transform shrink-0 p-0.5 border border-white/50">
+              <Image
+                src="/images/logo.png"
+                alt="Ghomo Pakistan Logo"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className={`text-lg sm:text-xl font-black tracking-tight leading-none ${
+                isScrolled ? "text-[#003554]" : "text-white"
+              }`}>
+                {config.shortName} <span className="text-[#00b2d4]">Pakistan</span>
+              </span>
+              <span className={`text-[9px] sm:text-[10px] uppercase font-black tracking-widest mt-0.5 ${
+                isScrolled ? "text-[#00b2d4]" : "text-slate-200"
+              }`}>
+                Wander & Explore
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
-              const textColor = scrolled || pathname !== '/' ? (isActive ? "text-accent font-semibold" : "text-foreground hover:text-accent") : "text-white/90 hover:text-white drop-shadow-md";
-              
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`${textColor} transition-colors duration-200 text-sm tracking-[0.15em] uppercase`}
+                  className={`px-3 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
+                    isActive
+                      ? isScrolled
+                        ? "bg-[#ebfafc] text-[#00b2d4]"
+                        : "bg-white/20 text-white"
+                      : isScrolled
+                      ? "text-slate-700 hover:text-[#00b2d4] hover:bg-slate-50"
+                      : "text-white/90 hover:text-white hover:bg-white/10"
+                  }`}
                 >
                   {link.name}
                 </Link>
               );
             })}
-            
-            <a
-              href={config.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] text-white px-6 py-2 rounded-full font-medium hover:bg-[#25D366]/90 transition-colors shadow-md flex items-center gap-2"
+          </nav>
+
+          {/* Action CTAs Desktop */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            <Link
+              href="/craft-your-tour"
+              className={`text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-full border transition-all ${
+                isScrolled 
+                  ? "border-[#00b2d4] text-[#00b2d4] hover:bg-[#ebfafc]" 
+                  : "border-white/50 text-white hover:bg-white/20"
+              }`}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z"/><path d="M14 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z"/><path d="M9.5 15c1.167 1.667 3.833 1.667 5 0"/></svg>
-              Book Now
-            </a>
+              Plan Trip
+            </Link>
+            
+            <Link
+              href="/packages"
+              className="bg-[#00b2d4] hover:bg-[#003554] text-white font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_4px_15px_rgba(0,178,212,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shrink-0"
+            >
+              Book Adventure
+            </Link>
           </div>
 
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`focus:outline-none ${scrolled || pathname !== '/' ? 'text-foreground' : 'text-white drop-shadow-md'}`}
+          {/* Mobile Right Controls */}
+          <div className="flex lg:hidden items-center gap-2">
+            <Link
+              href="/packages"
+              className="bg-[#00b2d4] text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              Book
+            </Link>
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className={`p-2 rounded-xl transition-colors ${
+                isScrolled ? "text-slate-800 hover:bg-slate-100" : "text-white hover:bg-white/10"
+              }`}
+              aria-label="Open mobile menu"
+            >
+              <Menu className="w-6 h-6 shrink-0" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-b border-border shadow-xl absolute w-full left-0 top-full">
-          <div className="px-4 py-6 space-y-2 flex flex-col">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`${
-                  pathname === link.href ? "text-accent font-semibold" : "text-foreground"
-                } block px-4 py-4 text-lg font-serif transition-colors border-b border-border/50`}
-              >
-                {link.name}
+      {/* Full-Screen Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-50 bg-[#002136] text-white flex flex-col justify-between p-6 animate-fade-in overflow-y-auto">
+          {/* Mobile Drawer Header */}
+          <div>
+            <div className="flex items-center justify-between pb-6 border-b border-white/10">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5">
+                <div className="relative w-9 h-9 rounded-full overflow-hidden bg-white p-0.5">
+                  <Image src="/images/logo.png" alt="Ghomo Pakistan" fill className="object-contain" />
+                </div>
+                <span className="text-lg font-black text-white">
+                  {config.shortName} <span className="text-[#00b2d4]">Pakistan</span>
+                </span>
               </Link>
-            ))}
-            
-            <div className="pt-6 pb-2">
-              <a
-                href={config.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex justify-center items-center gap-2 bg-[#25D366] text-white px-6 py-4 rounded-full font-medium"
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20"
+                aria-label="Close menu"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z"/><path d="M14 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z"/><path d="M9.5 15c1.167 1.667 3.833 1.667 5 0"/></svg>
-                Book on WhatsApp
-              </a>
+                <X className="w-5 h-5 shrink-0" />
+              </button>
+            </div>
+
+            {/* Mobile Nav Links */}
+            <div className="flex flex-col gap-2 pt-6">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center justify-between p-3.5 rounded-2xl font-extrabold text-base transition-all ${
+                      isActive
+                        ? "bg-[#00b2d4] text-white shadow-lg"
+                        : "text-slate-200 hover:bg-white/10 hover:text-white"
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    <ChevronRight className="w-4 h-4 opacity-70 shrink-0" />
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Mobile Drawer Bottom CTAs */}
+          <div className="pt-8 border-t border-white/10 flex flex-col gap-3">
+            <Link
+              href="/craft-your-tour"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-extrabold text-sm transition-all border border-white/20"
+            >
+              ✨ Craft Custom Private Tour
+            </Link>
+
+            <Link
+              href={config.whatsappLink}
+              target="_blank"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#00b2d4] hover:bg-[#009bb8] text-white font-extrabold text-sm shadow-lg transition-all"
+            >
+              <MessageCircle className="w-4 h-4 shrink-0" />
+              <span>Direct WhatsApp Assistance</span>
+            </Link>
+
+            <div className="text-center text-xs text-slate-400 mt-2">
+              Hotline: <a href={`tel:${config.phone}`} className="text-white font-bold">{config.phone}</a>
             </div>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }
