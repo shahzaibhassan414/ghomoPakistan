@@ -24,7 +24,7 @@ function PackagesContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(initialCat);
   const [selectedDest, setSelectedDest] = useState(initialDest);
-  const [sortBy, setSortBy] = useState<"featured" | "price-low" | "price-high" | "duration">("featured");
+  const [sortBy, setSortBy] = useState<"featured" | "duration" | "dest-az">("featured");
   const [selectedTourForBooking, setSelectedTourForBooking] = useState<TourPackage | null>(null);
 
   useEffect(() => {
@@ -50,9 +50,8 @@ function PackagesContent() {
 
   // Sorting
   const sortedTours = [...filteredTours].sort((a, b) => {
-    if (sortBy === "price-low") return a.price - b.price;
-    if (sortBy === "price-high") return b.price - a.price;
     if (sortBy === "duration") return b.days - a.days;
+    if (sortBy === "dest-az") return a.destination.localeCompare(b.destination);
     return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
   });
 
@@ -112,9 +111,8 @@ function PackagesContent() {
                 className="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 focus:border-[#00b2d4] text-sm font-semibold text-slate-800 cursor-pointer"
               >
                 <option value="featured">Sort: Featured First</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
                 <option value="duration">Duration: Longest First</option>
+                <option value="dest-az">Destination: A to Z</option>
               </select>
             </div>
           </div>

@@ -91,7 +91,7 @@ Please confirm my seat reservation!`;
             {tour.title}
           </h3>
           <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
-            {tour.duration} • Starting from PKR {tour.price.toLocaleString()}
+            {tour.duration} • Group & Private Tour
           </p>
         </div>
 
@@ -120,8 +120,8 @@ Please confirm my seat reservation!`;
                 <span className="font-bold text-slate-900">{guestsCount} Person(s)</span>
               </div>
               <div className="flex justify-between text-sm font-black text-[#003554] pt-2 border-t border-slate-200 mt-2">
-                <span>Estimated Total:</span>
-                <span className="text-[#00b2d4]">PKR {totalPrice.toLocaleString()}</span>
+                <span>Quotation:</span>
+                <span className="text-[#00b2d4]">Custom Quote On Request</span>
               </div>
             </div>
 
@@ -145,10 +145,10 @@ Please confirm my seat reservation!`;
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
-                  { key: "quad", label: "Quad (4)", price: tour.sharingPrices.quad },
-                  { key: "triple", label: "Triple (3)", price: tour.sharingPrices.triple },
-                  { key: "twin", label: "Twin (2)", price: tour.sharingPrices.twin },
-                  { key: "privateCouple", label: "Private Room", price: tour.sharingPrices.privateCouple || tour.sharingPrices.twin * 1.15 },
+                  { key: "quad", label: "Quad (4 Pax)", desc: "4 In 1 Room" },
+                  { key: "triple", label: "Triple (3 Pax)", desc: "3 In 1 Room" },
+                  { key: "twin", label: "Twin (2 Pax)", desc: "2 In 1 Room" },
+                  { key: "privateCouple", label: "Private Room", desc: "Couple Suite" },
                 ].map((plan) => (
                   <button
                     key={plan.key}
@@ -161,8 +161,8 @@ Please confirm my seat reservation!`;
                     }`}
                   >
                     <div className="text-[11px] sm:text-xs font-black truncate">{plan.label}</div>
-                    <div className="text-xs sm:text-sm font-black text-[#00b2d4] mt-0.5">
-                      {plan.price ? `PKR ${(plan.price / 1000).toFixed(1)}k` : "On Request"}
+                    <div className="text-[11px] font-bold text-[#00b2d4] mt-0.5 truncate">
+                      {plan.desc}
                     </div>
                   </button>
                 ))}
@@ -215,7 +215,7 @@ Please confirm my seat reservation!`;
                   3. Total Travelers
                 </label>
                 <span className="text-[11px] font-bold text-[#00b2d4]">
-                  PKR {currentPricePerPerson.toLocaleString()} / person
+                  Available On Request
                 </span>
               </div>
               <div className="flex items-center gap-3 bg-slate-50 p-2 sm:p-2.5 rounded-xl border border-slate-200">
@@ -302,14 +302,14 @@ Please confirm my seat reservation!`;
               </div>
             </div>
 
-            {/* Total Price Bar & Submit */}
+            {/* Custom Quote Bar & Submit */}
             <div className="bg-[#002136] text-white p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 shadow-xl">
               <div className="w-full sm:w-auto text-center sm:text-left">
-                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Estimated Total:</div>
-                <div className="text-xl sm:text-2xl font-black text-[#00b2d4]">
-                  PKR {totalPrice.toLocaleString()}
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Package Pricing:</div>
+                <div className="text-lg sm:text-xl font-black text-white">
+                  Custom Quote on Request
                 </div>
-                <div className="text-[10px] text-slate-400">
+                <div className="text-[10px] text-[#00b2d4] font-semibold">
                   {guestsCount} guest(s) • {sharingPlan.toUpperCase()} Sharing
                 </div>
               </div>

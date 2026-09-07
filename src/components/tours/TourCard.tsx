@@ -107,16 +107,16 @@ export default function TourCard({ tour, onBookNow }: TourCardProps) {
         </div>
 
         {/* Pricing & CTA Footer */}
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+        <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3">
           <div>
             <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-              Starting from
+              Tour Package
             </div>
-            <div className="text-lg sm:text-xl font-black text-[#003554]">
-              PKR <span className="text-[#00b2d4]">{tour.price.toLocaleString()}</span>
+            <div className="text-sm sm:text-base font-black text-[#003554]">
+              Custom Quote
             </div>
-            <div className="text-[10px] text-slate-500">
-              Quad sharing rate
+            <div className="text-[10px] text-[#00b2d4] font-bold">
+              Available On Request
             </div>
           </div>
 
@@ -125,7 +125,7 @@ export default function TourCard({ tour, onBookNow }: TourCardProps) {
               onClick={() => onBookNow(tour)}
               className="px-5 py-2.5 rounded-full bg-[#00b2d4] hover:bg-[#003554] text-white font-extrabold text-xs sm:text-sm shadow-[0_4px_15px_rgba(0,178,212,0.35)] transition-all transform hover:scale-105 active:scale-95"
             >
-              Book Now
+              Inquire Now
             </button>
           </div>
         </div>

@@ -74,7 +74,7 @@ export default function CraftYourTourPage() {
 *Trip Type:* ${tripType}
 *Departure City:* ${departureCity}
 *Tentative Date:* ${tentativeDate || "Flexible"}
-*Estimated Budget Range:* PKR ~${estimatedTotal.toLocaleString()}
+*Quotation:* Requesting Custom Package Quote
 
 *Lead Traveler:*
 - *Name:* ${leadName}
@@ -306,15 +306,15 @@ Please provide a custom tailored itinerary and detailed quotation!`;
             />
           </div>
 
-          {/* Estimated Quote & WhatsApp Submission */}
+          {/* Custom Quote & WhatsApp Submission */}
           <div className="bg-[#002136] text-white p-5 sm:p-8 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 shadow-2xl">
             <div className="text-center sm:text-left">
-              <span className="text-[10px] sm:text-xs text-slate-400 font-bold uppercase tracking-wider">Estimated Budget Quote:</span>
-              <div className="text-2xl sm:text-3xl font-black text-[#00b2d4] mt-0.5">
-                PKR ~{estimatedTotal.toLocaleString()}
+              <span className="text-[10px] sm:text-xs text-[#00b2d4] font-bold uppercase tracking-wider">Bespoke Itinerary:</span>
+              <div className="text-xl sm:text-2xl font-black text-white mt-0.5">
+                Custom Quote On Request
               </div>
               <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">
-                For {travelersCount} traveler(s) • {tripDuration} Days • {travelStyle.toUpperCase()}
+                Tailored for {travelersCount} traveler(s) • {tripDuration} Days • {travelStyle.toUpperCase()} Hotel Standard
               </p>
             </div>
 
@@ -323,7 +323,7 @@ Please provide a custom tailored itinerary and detailed quotation!`;
               className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#00b2d4] hover:bg-[#009bb8] text-white font-black text-xs sm:text-sm shadow-[0_4px_20px_rgba(0,178,212,0.4)] transition-all flex items-center justify-center gap-2 transform active:scale-95 whitespace-nowrap"
             >
               <Send className="w-4 h-4 shrink-0" />
-              <span>Get Custom Quote on WhatsApp</span>
+              <span>Request Itinerary on WhatsApp</span>
             </button>
           </div>
         </form>
