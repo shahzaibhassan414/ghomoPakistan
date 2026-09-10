@@ -29,14 +29,13 @@ export default function HomePage() {
     if (selectedCategoryTab === "all") return true;
     if (selectedCategoryTab === "group") return tour.category === "group";
     if (selectedCategoryTab === "weekend") return tour.category === "weekend";
-    if (selectedCategoryTab === "by-air") return tour.category === "by-air";
     return true;
   });
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[100dvh] sm:min-h-screen w-full flex flex-col justify-between pt-28 sm:pt-36 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#001726]">
+      <section className="relative min-h-[100dvh] sm:min-h-screen w-full flex flex-col justify-between pt-28 sm:pt-36 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#021f12]">
         {/* Cinematic Full-Bleed Background Image */}
         <div className="absolute inset-0 z-0 w-full h-full">
           <Image
@@ -49,7 +48,7 @@ export default function HomePage() {
             className="object-cover object-center w-full h-full scale-100"
           />
           {/* Multi-layer Cinematic Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/35 to-[#001726]/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/35 to-[#021f12]/95" />
           <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/20 to-black/60 pointer-events-none" />
         </div>
 
@@ -58,20 +57,20 @@ export default function HomePage() {
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] mb-3 sm:mb-4 text-shadow-lg max-w-4xl">
             Wander Where The <br className="hidden sm:inline" />
-            <span className="text-[#00b2d4]">
+            <span className="text-[#34d399]">
               Roads End & Magic Begins
             </span>
           </h1>
 
           <p className="text-xs sm:text-base lg:text-lg text-slate-200 font-medium max-w-2xl mx-auto mb-5 sm:mb-7 leading-relaxed text-shadow-md px-2">
-            Curated group road trips, weekend mountain escapes, and luxury by-air expeditions across Hunza, Skardu & Fairy Meadows. Certified guides, live bonfires, and unforgettable wanderlust.
+            Curated group road trips, weekend mountain escapes, and adventurous expeditions across Hunza, Skardu & Fairy Meadows. Certified guides, live bonfires, and unforgettable wanderlust.
           </p>
 
           {/* Dual Action CTAs */}
           <div className="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-2.5 sm:gap-4 mb-6 sm:mb-8 w-full max-w-md sm:max-w-none">
             <a
               href="#upcoming-tours"
-              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-8 py-3 sm:py-3.5 rounded-xl sm:rounded-full bg-[#00b2d4] hover:bg-[#009bb8] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_8px_25px_rgba(0,178,212,0.4)] transition-all duration-300 transform hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-8 py-3 sm:py-3.5 rounded-xl sm:rounded-full bg-[#059669] hover:bg-[#047857] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_8px_25px_rgba(5,150,105,0.4)] transition-all duration-300 transform hover:scale-105 active:scale-95"
             >
               <span>Explore Tours</span>
               <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
@@ -80,7 +79,7 @@ export default function HomePage() {
               href="/craft-your-tour"
               className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-8 py-3 sm:py-3.5 rounded-xl sm:rounded-full bg-white/15 hover:bg-white/25 text-white font-black text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md border border-white/40 shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95"
             >
-              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00b2d4] shrink-0" />
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#34d399] shrink-0" />
               <span>Custom Trip</span>
             </Link>
           </div>
@@ -96,7 +95,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 w-full md:w-auto">
             {config.stats.map((stat, idx) => (
               <div key={idx} className="flex flex-col items-center md:items-start">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-[#00b2d4] tracking-tight">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-black text-[#34d399] tracking-tight">
                   {stat.value}
                 </span>
                 <span className="text-[10px] sm:text-xs font-extrabold text-slate-300 uppercase tracking-wider mt-0.5">
@@ -112,7 +111,7 @@ export default function HomePage() {
             className="hidden md:flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-300 hover:text-white transition-colors group"
           >
             <span>Scroll to Departures</span>
-            <ChevronDown className="w-4 h-4 text-[#00b2d4] group-hover:translate-y-1 transition-transform animate-bounce" />
+            <ChevronDown className="w-4 h-4 text-[#34d399] group-hover:translate-y-1 transition-transform animate-bounce" />
           </a>
         </div>
       </section>
@@ -123,7 +122,7 @@ export default function HomePage() {
           {/* Header & Tabs */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5">
             <div>
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#003554] tracking-tight mb-2">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#074125] tracking-tight mb-2">
                 Featured Tour Packages
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm sm:max-w-xl">
@@ -137,14 +136,13 @@ export default function HomePage() {
                 { id: "all", label: "All Tours" },
                 { id: "group", label: "Group Tours" },
                 { id: "weekend", label: "Weekend Escapes" },
-                { id: "by-air", label: "By Air Luxury" },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setSelectedCategoryTab(tab.id)}
                   className={`px-4 py-2 rounded-full text-xs font-black tracking-wide uppercase transition-all whitespace-nowrap shrink-0 ${
                     selectedCategoryTab === tab.id
-                      ? "bg-[#003554] text-white shadow-md"
+                      ? "bg-[#074125] text-white shadow-md"
                       : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300"
                   }`}
                 >
@@ -164,17 +162,6 @@ export default function HomePage() {
               />
             ))}
           </div>
-
-          {/* View All CTA */}
-          <div className="text-center mt-10 sm:mt-12">
-            <Link
-              href="/packages"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#003554] hover:bg-[#002136] text-white font-black text-xs sm:text-sm shadow-xl transition-all hover:scale-105"
-            >
-              <span>View All 15+ Upcoming Tours</span>
-              <ArrowRight className="w-4 h-4 shrink-0" />
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -185,7 +172,7 @@ export default function HomePage() {
       <ActivityHighlights />
 
       {/* 5. CRAFT YOUR TOUR PROMO BANNER */}
-      <section className="py-14 sm:py-16 bg-[#002136] text-white relative overflow-hidden">
+      <section className="py-14 sm:py-16 bg-[#042c19] text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="max-w-2xl text-center lg:text-left">
             <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-3">
@@ -196,15 +183,15 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 text-xs font-bold text-slate-300">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#00b2d4] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#10b981] shrink-0" />
                 <span>Private 4x4 or Luxury Vans</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#00b2d4] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#10b981] shrink-0" />
                 <span>Flexible Dates & Plans</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#00b2d4] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#10b981] shrink-0" />
                 <span>Instant WhatsApp Quote</span>
               </span>
             </div>
@@ -213,7 +200,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full lg:w-auto">
             <Link
               href="/craft-your-tour"
-              className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#00b2d4] hover:bg-[#009bb8] text-white font-black text-xs sm:text-sm shadow-[0_4px_20px_rgba(0,178,212,0.4)] transition-all text-center"
+              className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#059669] hover:bg-[#047857] text-white font-black text-xs sm:text-sm shadow-[0_4px_20px_rgba(5,150,105,0.4)] transition-all text-center"
             >
               Interactive Trip Builder
             </Link>
@@ -222,7 +209,7 @@ export default function HomePage() {
               target="_blank"
               className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-black text-xs sm:text-sm border border-white/20 transition-all text-center flex items-center justify-center gap-2"
             >
-              <Send className="w-4 h-4 text-[#00b2d4] shrink-0" />
+              <Send className="w-4 h-4 text-[#34d399] shrink-0" />
               <span>Chat on WhatsApp</span>
             </Link>
           </div>
@@ -239,7 +226,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 bg-[#f8fafc]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-4xl font-black text-[#003554] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-[#074125] tracking-tight">
               Frequently Asked Questions
             </h2>
           </div>
@@ -254,12 +241,12 @@ export default function HomePage() {
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-black text-sm sm:text-base text-[#003554] hover:text-[#00b2d4] transition-colors"
+                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-black text-sm sm:text-base text-[#074125] hover:text-[#059669] transition-colors"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
                       className={`w-4 h-4 sm:w-5 sm:h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#00b2d4]" : ""
+                        isOpen ? "rotate-180 text-[#059669]" : ""
                       }`}
                     />
                   </button>

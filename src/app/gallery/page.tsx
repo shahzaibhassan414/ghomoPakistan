@@ -28,7 +28,8 @@ export default function GalleryPage() {
   return (
     <div className="bg-[#f8fafc] min-h-screen pt-28 pb-24">
       {/* Header */}
-      <div className="bg-[#002136] text-white py-12 sm:py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-8 sm:mb-12">
+      <div className="bg-[#042c19] text-white py-12 sm:py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-8 sm:mb-12">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#059669]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-2.5 sm:mb-3">
             Moments From The Road
@@ -53,7 +54,7 @@ export default function GalleryPage() {
               onClick={() => setFilter(tab.id)}
               className={`px-5 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wide transition-all ${
                 filter === tab.id
-                  ? "bg-[#00b2d4] text-white shadow-md"
+                  ? "bg-[#059669] text-white shadow-md"
                   : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300"
               }`}
             >
@@ -86,7 +87,7 @@ export default function GalleryPage() {
               </div>
 
               <div className="absolute bottom-5 left-5 right-5 text-white">
-                <div className="flex items-center gap-1.5 text-xs text-[#00b2d4] font-bold mb-1">
+                <div className="flex items-center gap-1.5 text-xs text-[#34d399] font-bold mb-1">
                   <MapPin className="w-3.5 h-3.5" />
                   <span>{item.location}</span>
                 </div>
@@ -99,7 +100,7 @@ export default function GalleryPage() {
         </div>
 
         {/* Instagram / WhatsApp Community CTA */}
-        <div className="mt-16 bg-gradient-to-r from-[#003554] to-[#002136] rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
+        <div className="mt-16 bg-gradient-to-r from-[#074125] to-[#042c19] rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
           <h3 className="text-2xl sm:text-3xl font-black mb-3">Tag Us in Your Adventures</h3>
           <p className="text-slate-300 text-sm max-w-xl mx-auto mb-6">
             Tag @{config.shortName.toLowerCase()}pakistan on Instagram to get featured on our community wall and win exciting merchandise!
@@ -107,7 +108,7 @@ export default function GalleryPage() {
           <Link
             href={config.socials.instagram}
             target="_blank"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#00b2d4] hover:bg-[#0ecaee] text-white font-extrabold text-sm shadow-xl transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#059669] hover:bg-[#047857] text-white font-extrabold text-sm shadow-xl transition-all"
           >
             Follow on Instagram
           </Link>
@@ -140,10 +141,10 @@ export default function GalleryPage() {
               />
             </div>
 
-            <div className="p-6 bg-slate-900 flex items-center justify-between">
+            <div className="p-6 bg-[#042c19] flex items-center justify-between">
               <div>
                 <h3 className="text-xl font-bold text-white">{selectedImage.title}</h3>
-                <div className="flex items-center gap-1 text-sm text-[#00b2d4]">
+                <div className="flex items-center gap-1 text-sm text-[#34d399]">
                   <MapPin className="w-4 h-4" />
                   <span>{selectedImage.location}</span>
                 </div>
@@ -151,7 +152,7 @@ export default function GalleryPage() {
 
               <Link
                 href="/packages"
-                className="px-5 py-2.5 rounded-full bg-[#00b2d4] hover:bg-[#0ecaee] text-white font-bold text-xs uppercase"
+                className="px-5 py-2.5 rounded-full bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs uppercase"
               >
                 Join Next Trip
               </Link>

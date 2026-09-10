@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${jakarta.variable} ${outfit.variable} font-sans bg-background text-foreground antialiased selection:bg-[#00b2d4] selection:text-white`}>
+      <body className={`${jakarta.variable} ${outfit.variable} font-sans bg-background text-foreground antialiased selection:bg-[#059669] selection:text-white`}>
         <Navbar />
         
         {/* Floating WhatsApp Quick Action Button */}

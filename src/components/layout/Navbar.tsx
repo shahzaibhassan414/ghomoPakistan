@@ -44,32 +44,35 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Group Tours", href: "/packages" },
+    { name: "All Packages", href: "/packages" },
     { name: "Craft Your Tour", href: "/craft-your-tour" },
-    { name: "By Air Escapes", href: "/by-air" },
     { name: "Moments", href: "/gallery" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
+
+  const isHome = pathname === "/";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       {/* Top micro-bar */}
       <div className={`hidden lg:block transition-all duration-300 text-xs ${
         isScrolled 
-          ? "bg-[#002136] text-slate-300 py-1.5 border-b border-white/5" 
-          : "bg-black/40 backdrop-blur-sm text-white/90 py-2 border-b border-white/10"
+          ? "bg-[#042c19] text-slate-300 py-1.5 border-b border-white/5" 
+          : isHome
+          ? "bg-black/40 backdrop-blur-sm text-white/90 py-2 border-b border-white/10"
+          : "bg-[#032012] text-slate-300 py-1.5 border-b border-white/10"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5">
-              <Phone className="w-3.5 h-3.5 text-[#00b2d4] shrink-0" />
+              <Phone className="w-3.5 h-3.5 text-[#10b981] shrink-0" />
               <a href={`tel:${config.phone}`} className="hover:text-white transition-colors font-medium">
                 {config.hotlineDisplay}
               </a>
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-[#00b2d4] shrink-0" />
+              <MapPin className="w-3.5 h-3.5 text-[#10b981] shrink-0" />
               <span className="font-medium">Lahore, Pakistan</span>
             </span>
           </div>
@@ -79,7 +82,7 @@ export default function Navbar() {
             <Link 
               href={config.whatsappLink} 
               target="_blank" 
-              className="text-[#00b2d4] hover:text-white font-bold flex items-center gap-1"
+              className="text-[#34d399] hover:text-white font-bold flex items-center gap-1"
             >
               WhatsApp Support
             </Link>
@@ -91,7 +94,9 @@ export default function Navbar() {
       <div className={`transition-all duration-300 ${
         isScrolled 
           ? "bg-white/95 backdrop-blur-md shadow-md py-2.5 sm:py-3 text-slate-900 border-b border-slate-200/70" 
-          : "bg-gradient-to-b from-black/85 via-black/40 to-transparent py-3 sm:py-4 text-white"
+          : isHome
+          ? "bg-gradient-to-b from-black/85 via-black/40 to-transparent py-3 sm:py-4 text-white"
+          : "bg-[#042c19] shadow-lg py-3 sm:py-3.5 text-white border-b border-emerald-900/40"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
@@ -107,12 +112,12 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className={`text-lg sm:text-xl font-black tracking-tight leading-none ${
-                isScrolled ? "text-[#003554]" : "text-white"
+                isScrolled ? "text-[#074125]" : "text-white"
               }`}>
-                {config.shortName} <span className="text-[#00b2d4]">Pakistan</span>
+                {config.shortName} <span className="text-[#059669]">Pakistan</span>
               </span>
               <span className={`text-[9px] sm:text-[10px] uppercase font-black tracking-widest mt-0.5 ${
-                isScrolled ? "text-[#00b2d4]" : "text-slate-200"
+                isScrolled ? "text-[#059669]" : "text-emerald-300"
               }`}>
                 Wander & Explore
               </span>
@@ -130,10 +135,10 @@ export default function Navbar() {
                   className={`px-3 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
                     isActive
                       ? isScrolled
-                        ? "bg-[#ebfafc] text-[#00b2d4]"
+                        ? "bg-[#ecfdf5] text-[#074125]"
                         : "bg-white/20 text-white"
                       : isScrolled
-                      ? "text-slate-700 hover:text-[#00b2d4] hover:bg-slate-50"
+                      ? "text-slate-700 hover:text-[#074125] hover:bg-[#ecfdf5]"
                       : "text-white/90 hover:text-white hover:bg-white/10"
                   }`}
                 >
@@ -149,7 +154,7 @@ export default function Navbar() {
               href="/craft-your-tour"
               className={`text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-full border transition-all ${
                 isScrolled 
-                  ? "border-[#00b2d4] text-[#00b2d4] hover:bg-[#ebfafc]" 
+                  ? "border-[#059669] text-[#074125] hover:bg-[#ecfdf5]" 
                   : "border-white/50 text-white hover:bg-white/20"
               }`}
             >
@@ -158,7 +163,7 @@ export default function Navbar() {
             
             <Link
               href="/packages"
-              className="bg-[#00b2d4] hover:bg-[#003554] text-white font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_4px_15px_rgba(0,178,212,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shrink-0"
+              className="bg-[#059669] hover:bg-[#074125] text-white font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_4px_15px_rgba(5,150,105,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shrink-0"
             >
               Book Adventure
             </Link>
@@ -168,7 +173,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center gap-2">
             <Link
               href="/packages"
-              className="bg-[#00b2d4] text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm"
+              className="bg-[#059669] text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm"
             >
               Book
             </Link>
@@ -187,7 +192,7 @@ export default function Navbar() {
 
       {/* Full-Screen Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-[#002136] text-white flex flex-col justify-between p-6 animate-fade-in overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 z-50 bg-[#042c19] text-white flex flex-col justify-between p-6 animate-fade-in overflow-y-auto">
           {/* Mobile Drawer Header */}
           <div>
             <div className="flex items-center justify-between pb-6 border-b border-white/10">
@@ -196,7 +201,7 @@ export default function Navbar() {
                   <Image src="/images/logo.png" alt="Ghomo Pakistan" fill className="object-contain" />
                 </div>
                 <span className="text-lg font-black text-white">
-                  {config.shortName} <span className="text-[#00b2d4]">Pakistan</span>
+                  {config.shortName} <span className="text-[#34d399]">Pakistan</span>
                 </span>
               </Link>
               <button
@@ -219,7 +224,7 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center justify-between p-3.5 rounded-2xl font-extrabold text-base transition-all ${
                       isActive
-                        ? "bg-[#00b2d4] text-white shadow-lg"
+                        ? "bg-[#059669] text-white shadow-lg"
                         : "text-slate-200 hover:bg-white/10 hover:text-white"
                     }`}
                   >
@@ -245,7 +250,7 @@ export default function Navbar() {
               href={config.whatsappLink}
               target="_blank"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#00b2d4] hover:bg-[#009bb8] text-white font-extrabold text-sm shadow-lg transition-all"
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#059669] hover:bg-[#047857] text-white font-extrabold text-sm shadow-lg transition-all"
             >
               <MessageCircle className="w-4 h-4 shrink-0" />
               <span>Direct WhatsApp Assistance</span>

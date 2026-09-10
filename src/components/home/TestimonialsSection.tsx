@@ -79,23 +79,23 @@ export default function TestimonialsSection() {
 
   return (
     <section 
-      className="py-14 sm:py-24 bg-gradient-to-b from-[#f8fbfd] via-white to-[#f4f9fc] relative overflow-hidden"
+      className="py-14 sm:py-24 bg-gradient-to-b from-[#f4fbf7] via-white to-[#f0fdf4] relative overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Decorative background blurs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#00b2d4]/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#003554]/5 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#059669]/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#074125]/5 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#00b2d4]/10 text-[#008ba5] px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase mb-3 sm:mb-4">
-            <Sparkles className="w-4 h-4 text-[#00b2d4]" />
+          <div className="inline-flex items-center gap-2 bg-[#ecfdf5] text-[#074125] px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase mb-3 sm:mb-4 border border-[#059669]/20">
+            <Sparkles className="w-4 h-4 text-[#059669]" />
             <span>Community Stories & Reviews</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#003554] tracking-tight mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#074125] tracking-tight mb-3 sm:mb-4">
             What Our Travelers Say
           </h2>
           <p className="text-slate-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
@@ -109,7 +109,7 @@ export default function TestimonialsSection() {
                 <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
               ))}
             </div>
-            <span className="font-bold text-[#003554]">4.9 / 5.0</span>
+            <span className="font-bold text-[#074125]">4.9 / 5.0</span>
             <span className="text-slate-400">•</span>
             <span className="text-slate-600 font-medium">Over 8,500+ happy wanderers</span>
           </div>
@@ -139,7 +139,7 @@ export default function TestimonialsSection() {
                 >
                   <div className="bg-white h-full p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group hover:-translate-y-1">
                     {/* Floating Quote Badge */}
-                    <div className="absolute -top-3 right-6 w-9 h-9 rounded-full bg-gradient-to-tr from-[#003554] to-[#00b2d4] text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                    <div className="absolute -top-3 right-6 w-9 h-9 rounded-full bg-gradient-to-tr from-[#074125] to-[#059669] text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                       <Quote className="w-4 h-4 fill-white" />
                     </div>
 
@@ -151,7 +151,7 @@ export default function TestimonialsSection() {
                             <Star key={i} className="w-4 h-4 fill-amber-400" />
                           ))}
                         </div>
-                        <span className="text-[11px] font-bold text-[#00b2d4] bg-[#00b2d4]/10 px-2.5 py-0.5 rounded-full truncate max-w-[150px]">
+                        <span className="text-[11px] font-bold text-[#074125] bg-[#ecfdf5] border border-[#059669]/20 px-2.5 py-0.5 rounded-full truncate max-w-[150px]">
                           {item.trip.split("—")[0].trim()}
                         </span>
                       </div>
@@ -164,7 +164,7 @@ export default function TestimonialsSection() {
 
                     {/* Author Profile */}
                     <div className="pt-4 border-t border-slate-100 flex items-center gap-3.5 mt-auto">
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#00b2d4] shrink-0 bg-slate-200 shadow-sm">
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#059669] shrink-0 bg-slate-200 shadow-sm">
                         <Image
                           src={item.avatar}
                           alt={item.name}
@@ -173,9 +173,9 @@ export default function TestimonialsSection() {
                         />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-sm font-extrabold text-[#003554] flex items-center gap-1.5 truncate">
+                        <h4 className="text-sm font-extrabold text-[#074125] flex items-center gap-1.5 truncate">
                           {item.name}
-                          <CheckCircle className="w-3.5 h-3.5 text-[#00b2d4] shrink-0" />
+                          <CheckCircle className="w-3.5 h-3.5 text-[#059669] shrink-0" />
                         </h4>
                         <p className="text-[11px] text-slate-500 font-medium truncate">
                           {item.role}
@@ -195,7 +195,7 @@ export default function TestimonialsSection() {
           <button
             onClick={prev}
             aria-label="Previous testimonial"
-            className="absolute -left-3 sm:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 text-[#003554] hover:bg-[#00b2d4] hover:text-white hover:border-[#00b2d4] shadow-lg flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#00b2d4] z-20 hover:scale-105 active:scale-95"
+            className="absolute -left-3 sm:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 text-[#074125] hover:bg-[#059669] hover:text-white hover:border-[#059669] shadow-lg flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#059669] z-20 hover:scale-105 active:scale-95"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
@@ -203,7 +203,7 @@ export default function TestimonialsSection() {
           <button
             onClick={next}
             aria-label="Next testimonial"
-            className="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 text-[#003554] hover:bg-[#00b2d4] hover:text-white hover:border-[#00b2d4] shadow-lg flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#00b2d4] z-20 hover:scale-105 active:scale-95"
+            className="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 text-[#074125] hover:bg-[#059669] hover:text-white hover:border-[#059669] shadow-lg flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#059669] z-20 hover:scale-105 active:scale-95"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
@@ -218,7 +218,7 @@ export default function TestimonialsSection() {
               aria-label={`Go to slide ${idx + 1}`}
               className={`h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
                 currentIndex === idx
-                  ? "w-8 bg-[#00b2d4] shadow-sm"
+                  ? "w-8 bg-[#059669] shadow-md"
                   : "w-2.5 bg-slate-300 hover:bg-slate-400"
               }`}
             />

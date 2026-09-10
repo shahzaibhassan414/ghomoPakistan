@@ -43,7 +43,8 @@ Please reach out to me!`;
   return (
     <div className="bg-[#f8fafc] min-h-screen pt-28 pb-24">
       {/* Header */}
-      <div className="bg-[#002136] text-white py-12 sm:py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-8 sm:mb-12">
+      <div className="bg-[#042c19] text-white py-12 sm:py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-8 sm:mb-12">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#059669]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-2.5 sm:mb-3">
             Get In Touch
@@ -60,15 +61,15 @@ Please reach out to me!`;
           <div className="lg:col-span-5 space-y-6">
             {/* Quick Contact Card */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200/80 space-y-6">
-              <h3 className="text-xl font-black text-[#003554]">Direct Support Channels</h3>
+              <h3 className="text-xl font-black text-[#074125]">Direct Support Channels</h3>
               
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#ebfafc] text-[#00b2d4] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#059669] flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-400 font-bold uppercase">Call / WhatsApp Hotline</div>
-                  <a href={`tel:${config.phone}`} className="text-base font-black text-[#003554] hover:text-[#00b2d4]">
+                  <a href={`tel:${config.phone}`} className="text-base font-black text-[#074125] hover:text-[#059669]">
                     {config.phone}
                   </a>
                   <div className="text-xs text-emerald-600 font-semibold mt-0.5">Available 9:00 AM - 11:00 PM Daily</div>
@@ -76,12 +77,12 @@ Please reach out to me!`;
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#ebfafc] text-[#00b2d4] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#059669] flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-400 font-bold uppercase">Official Email</div>
-                  <a href={`mailto:${config.email}`} className="text-sm font-bold text-slate-800 hover:text-[#00b2d4]">
+                  <a href={`mailto:${config.email}`} className="text-sm font-bold text-slate-800 hover:text-[#059669]">
                     {config.email}
                   </a>
                 </div>
@@ -92,7 +93,7 @@ Please reach out to me!`;
                 <Link
                   href={config.whatsappLink}
                   target="_blank"
-                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-[#00b2d4] hover:bg-[#003554] text-white font-black text-sm shadow-[0_4px_20px_rgba(0,178,212,0.35)] transition-all"
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-[#059669] hover:bg-[#074125] text-white font-black text-sm shadow-[0_4px_20px_rgba(5,150,105,0.35)] transition-all"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>Chat on WhatsApp Now</span>
@@ -101,11 +102,11 @@ Please reach out to me!`;
             </div>
 
             {/* Office Locations Card */}
-            <div className="bg-[#002136] text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+            <div className="bg-[#042c19] text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
               <h3 className="text-xl font-black text-white">Our Physical Offices</h3>
 
               <div className="flex items-start gap-3.5">
-                <MapPin className="w-5 h-5 text-[#00b2d4] shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 text-[#34d399] shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-sm text-white">Lahore Head Office</h4>
                   <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
@@ -115,7 +116,7 @@ Please reach out to me!`;
               </div>
 
               <div className="flex items-start gap-3.5">
-                <MapPin className="w-5 h-5 text-[#00b2d4] shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 text-[#34d399] shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-sm text-white">Islamabad Branch Office</h4>
                   <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
@@ -130,10 +131,10 @@ Please reach out to me!`;
           <div className="lg:col-span-7">
             <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200/80">
               <div className="mb-8">
-                <span className="text-xs font-black uppercase tracking-wider text-[#00b2d4] block mb-1">
+                <span className="text-xs font-black uppercase tracking-wider text-[#059669] block mb-1">
                   Quick Inquiry Form
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-[#003554]">
+                <h3 className="text-2xl sm:text-3xl font-black text-[#074125]">
                   Send Us A Message
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -170,7 +171,7 @@ Please reach out to me!`;
                         placeholder="e.g. Hamza Ali"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#00b2d4] text-sm font-medium text-slate-800"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#059669] text-sm font-medium text-slate-800"
                       />
                     </div>
                     <div>
@@ -183,7 +184,7 @@ Please reach out to me!`;
                         placeholder="e.g. 0307 4116699"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#00b2d4] text-sm font-medium text-slate-800"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#059669] text-sm font-medium text-slate-800"
                       />
                     </div>
                   </div>
@@ -195,7 +196,7 @@ Please reach out to me!`;
                     <select
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#00b2d4] text-sm font-medium text-slate-800 bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#059669] text-sm font-medium text-slate-800 bg-white"
                     >
                       <option value="Fairy Meadows & Nanga Parbat">Fairy Meadows & Nanga Parbat (5 Days)</option>
                       <option value="Hunza Valley & Passu Cones">Hunza Valley & Passu (5 Days)</option>
@@ -217,13 +218,13 @@ Please reach out to me!`;
                       placeholder="Tell us about your desired travel dates, number of people, or any questions..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#00b2d4] text-sm font-medium text-slate-800 resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#059669] text-sm font-medium text-slate-800 resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-2xl bg-[#00b2d4] hover:bg-[#003554] text-white font-extrabold text-sm shadow-[0_4px_20px_rgba(0,178,212,0.35)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
+                    className="w-full py-4 rounded-2xl bg-[#059669] hover:bg-[#074125] text-white font-extrabold text-sm shadow-[0_4px_20px_rgba(5,150,105,0.35)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Message via WhatsApp</span>

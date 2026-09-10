@@ -14,15 +14,15 @@ export default function TripCategories() {
   };
 
   return (
-    <section className="py-14 sm:py-20 bg-gradient-to-b from-[#ebfafc]/60 via-white to-[#ebfafc]/40 relative">
+    <section className="py-14 sm:py-20 bg-gradient-to-b from-[#ecfdf5]/60 via-white to-[#ecfdf5]/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#003554] tracking-tight mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#074125] tracking-tight mb-3 sm:mb-4">
             Choose Your Way to Wander
           </h2>
           <p className="text-slate-600 text-xs sm:text-base leading-relaxed">
-            Whether you want to join an energetic squad on a scenic road trip, fly directly into the Karakorams, or craft a bespoke private retreat — we have the perfect journey for you.
+            Whether you want to join an energetic squad on a scenic group tour, head out on a quick weekend escape, or craft a bespoke private expedition — we have the perfect journey for you.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export default function TripCategories() {
 
                 {/* Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3.5 py-1 rounded-full bg-[#00b2d4] text-white text-xs font-black uppercase tracking-wider shadow-md">
+                  <span className="px-3.5 py-1 rounded-full bg-[#059669] text-white text-xs font-black uppercase tracking-wider shadow-md">
                     {cat.badge}
                   </span>
                 </div>
@@ -54,7 +54,7 @@ export default function TripCategories() {
                 {/* Floating Icon */}
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                   <div>
-                    <span className="text-xs uppercase font-bold text-[#00b2d4] tracking-wider block">
+                    <span className="text-xs uppercase font-bold text-[#34d399] tracking-wider block">
                       {cat.subtitle}
                     </span>
                     <h3 className="text-xl font-black text-white leading-tight mt-0.5">
@@ -75,7 +75,7 @@ export default function TripCategories() {
 
                 <Link
                   href={cat.href}
-                  className="inline-flex items-center justify-between w-full px-5 py-3 rounded-2xl bg-[#ebfafc] group-hover:bg-[#00b2d4] text-[#003554] group-hover:text-white font-extrabold text-sm transition-all duration-300 shadow-sm"
+                  className="inline-flex items-center justify-between w-full px-5 py-3 rounded-2xl bg-[#ecfdf5] group-hover:bg-[#059669] text-[#074125] group-hover:text-white font-extrabold text-sm transition-all duration-300 shadow-sm"
                 >
                   <span>{cat.cta}</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />

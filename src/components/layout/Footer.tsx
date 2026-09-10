@@ -22,13 +22,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#002136] text-slate-300 relative pt-16 pb-8 border-t border-white/10 overflow-hidden">
+    <footer className="bg-[#021c10] text-slate-300 relative pt-16 pb-8 border-t border-white/10 overflow-hidden">
       {/* Decorative gradient glow */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00b2d4]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#003554]/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#059669]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#074125]/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-700/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-emerald-950/60">
           {/* Col 1: Brand & Bio */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3 group">
@@ -42,25 +42,25 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-black text-white tracking-tight leading-none">
-                  {config.shortName} <span className="text-[#00b2d4]">Pakistan</span>
+                  {config.shortName} <span className="text-[#34d399]">Pakistan</span>
                 </span>
-                <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#00b2d4] mt-0.5">
+                <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#34d399] mt-0.5">
                   Unforgettable Journeys
                 </span>
               </div>
             </Link>
             <p className="text-sm text-slate-300/80 leading-relaxed">
-              Explore the raw beauty of Pakistan. We organize curated group tours, custom private trips, northern road trips, and luxury by-air escapes for curious wanderers.
+              Explore the raw beauty of Pakistan. We organize curated group tours, custom private trips, and northern mountain road trips for curious wanderers.
             </p>
             
             {/* Trust Badges */}
             <div className="flex flex-col gap-2 pt-2">
               <div className="flex items-center gap-2 text-xs text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-[#00b2d4] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#10b981] shrink-0" />
                 <span>Verified licensed mountain tour captains</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-300">
-                <ShieldCheck className="w-4 h-4 text-[#00b2d4] shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-[#10b981] shrink-0" />
                 <span>100% safe for families & solo female travelers</span>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function Footer() {
               <Link
                 href={config.socials.instagram}
                 target="_blank"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#00b2d4] text-white flex items-center justify-center transition-all hover:scale-110 shrink-0"
+                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#059669] text-white flex items-center justify-center transition-all hover:scale-110 shrink-0"
                 aria-label="Instagram"
               >
                 <svg width="16" height="16" className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export default function Footer() {
               <Link
                 href={config.socials.facebook}
                 target="_blank"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#00b2d4] text-white flex items-center justify-center transition-all hover:scale-110 shrink-0"
+                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#059669] text-white flex items-center justify-center transition-all hover:scale-110 shrink-0"
                 aria-label="Facebook"
               >
                 <svg width="16" height="16" className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ export default function Footer() {
               <Link
                 href={config.socials.youtube}
                 target="_blank"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#00b2d4] text-white flex items-center justify-center transition-all hover:scale-110 shrink-0"
+                className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#059669] text-white flex items-center justify-center transition-all hover:scale-110 shrink-0"
                 aria-label="YouTube"
               >
                 <svg width="16" height="16" className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@ export default function Footer() {
           {/* Col 2: Quick Links */}
           <div>
             <h3 className="text-white font-bold text-base mb-4 tracking-wide uppercase flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#00b2d4]" />
+              <span className="w-2 h-2 rounded-full bg-[#10b981]" />
               Quick Links
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -114,17 +114,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/packages" className="hover:text-white hover:translate-x-1 inline-block transition-transform">
-                  Upcoming Group Tours
+                  All Tour Packages
                 </Link>
               </li>
               <li>
-                <Link href="/craft-your-tour" className="hover:text-white hover:translate-x-1 inline-block transition-transform text-[#00b2d4] font-semibold">
+                <Link href="/craft-your-tour" className="hover:text-white hover:translate-x-1 inline-block transition-transform text-[#34d399] font-semibold">
                   Craft Your Custom Tour
-                </Link>
-              </li>
-              <li>
-                <Link href="/by-air" className="hover:text-white hover:translate-x-1 inline-block transition-transform">
-                  By Air Luxury Escapes
                 </Link>
               </li>
               <li>
@@ -137,50 +132,55 @@ export default function Footer() {
                   About Our Community
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="hover:text-white hover:translate-x-1 inline-block transition-transform">
+                  Contact & Support
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Col 3: Popular Tours */}
           <div>
             <h3 className="text-white font-bold text-base mb-4 tracking-wide uppercase flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#00b2d4]" />
+              <span className="w-2 h-2 rounded-full bg-[#10b981]" />
               Popular Adventures
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/packages" className="hover:text-white flex items-center justify-between group">
+                <Link href="/packages/fairy-meadows-nanga-parbat-5-days" className="hover:text-white flex items-center justify-between group">
                   <span className="group-hover:translate-x-1 transition-transform">Fairy Meadows & Nanga Parbat</span>
-                  <span className="text-xs text-[#00b2d4] font-bold">5 Days</span>
+                  <span className="text-xs text-[#34d399] font-bold">5 Days</span>
                 </Link>
               </li>
               <li>
-                <Link href="/packages" className="hover:text-white flex items-center justify-between group">
-                  <span className="group-hover:translate-x-1 transition-transform">Hunza & Passu Cones</span>
-                  <span className="text-xs text-[#00b2d4] font-bold">5 Days</span>
+                <Link href="/packages/hunza-khunjerab-5-days" className="hover:text-white flex items-center justify-between group">
+                  <span className="group-hover:translate-x-1 transition-transform">Hunza & Khunjerab Pass</span>
+                  <span className="text-xs text-[#34d399] font-bold">5 Days</span>
                 </Link>
               </li>
               <li>
-                <Link href="/packages" className="hover:text-white flex items-center justify-between group">
-                  <span className="group-hover:translate-x-1 transition-transform">Skardu, Deosai & Lakes</span>
-                  <span className="text-xs text-[#00b2d4] font-bold">6 Days</span>
+                <Link href="/packages/skardu-deosai-6-days" className="hover:text-white flex items-center justify-between group">
+                  <span className="group-hover:translate-x-1 transition-transform">Skardu & Deosai Plains</span>
+                  <span className="text-xs text-[#34d399] font-bold">6 Days</span>
                 </Link>
               </li>
               <li>
-                <Link href="/packages" className="hover:text-white flex items-center justify-between group">
-                  <span className="group-hover:translate-x-1 transition-transform">Kumrat Valley & Katora</span>
-                  <span className="text-xs text-[#00b2d4] font-bold">4 Days</span>
+                <Link href="/packages/neelum-valley-kashmir-4-days" className="hover:text-white flex items-center justify-between group">
+                  <span className="group-hover:translate-x-1 transition-transform">Neelum Valley Kashmir</span>
+                  <span className="text-xs text-[#34d399] font-bold">4 Days</span>
                 </Link>
               </li>
               <li>
-                <Link href="/packages" className="hover:text-white flex items-center justify-between group">
-                  <span className="group-hover:translate-x-1 transition-transform">Swat & Malam Jabba</span>
-                  <span className="text-xs text-[#00b2d4] font-bold">3 Days</span>
+                <Link href="/packages/swat-kalam-3-days" className="hover:text-white flex items-center justify-between group">
+                  <span className="group-hover:translate-x-1 transition-transform">Swat & Kalam Valley</span>
+                  <span className="text-xs text-[#34d399] font-bold">3 Days</span>
                 </Link>
               </li>
               <li>
-                <Link href="/by-air" className="hover:text-white flex items-center justify-between group">
-                  <span className="group-hover:translate-x-1 transition-transform text-[#00b2d4] font-semibold">Skardu By Air Luxury</span>
-                  <span className="text-xs text-[#00b2d4] font-bold">7 Days</span>
+                <Link href="/packages/astore-minimarg-rainbow-lake-6-days" className="hover:text-white flex items-center justify-between group">
+                  <span className="group-hover:translate-x-1 transition-transform">Astore & Minimarg</span>
+                  <span className="text-xs text-[#34d399] font-bold">6 Days</span>
                 </Link>
               </li>
             </ul>
@@ -189,32 +189,32 @@ export default function Footer() {
           {/* Col 4: Get in Touch & Office */}
           <div>
             <h3 className="text-white font-bold text-base mb-4 tracking-wide uppercase flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#00b2d4]" />
+              <span className="w-2 h-2 rounded-full bg-[#10b981]" />
               Get In Touch
             </h3>
             <div className="space-y-3.5 text-sm">
               <div className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[#00b2d4] mt-1 shrink-0" />
+                <Phone className="w-4 h-4 text-[#10b981] mt-1 shrink-0" />
                 <div>
                   <div className="text-xs text-slate-400">Call / WhatsApp Hotline:</div>
-                  <a href={`tel:${config.phone}`} className="text-white font-bold hover:text-[#00b2d4] transition-colors">
+                  <a href={`tel:${config.phone}`} className="text-white font-bold hover:text-[#34d399] transition-colors">
                     {config.phone}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#00b2d4] mt-1 shrink-0" />
+                <Mail className="w-4 h-4 text-[#10b981] mt-1 shrink-0" />
                 <div>
                   <div className="text-xs text-slate-400">Email Address:</div>
-                  <a href={`mailto:${config.email}`} className="text-white hover:text-[#00b2d4] transition-colors">
+                  <a href={`mailto:${config.email}`} className="text-white hover:text-[#34d399] transition-colors">
                     {config.email}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#00b2d4] mt-1 shrink-0" />
+                <MapPin className="w-4 h-4 text-[#10b981] mt-1 shrink-0" />
                 <div>
                   <div className="text-xs text-slate-400">Head Office:</div>
                   <span className="text-slate-300 text-xs leading-relaxed">
@@ -228,7 +228,7 @@ export default function Footer() {
                 <Link
                   href={config.whatsappLink}
                   target="_blank"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#00b2d4]/20 border border-[#00b2d4]/40 text-[#00b2d4] hover:bg-[#00b2d4] hover:text-white font-bold text-xs transition-all w-full justify-center"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#059669]/20 border border-[#059669]/40 text-[#34d399] hover:bg-[#059669] hover:text-white font-bold text-xs transition-all w-full justify-center"
                 >
                   <Send className="w-3.5 h-3.5" />
                   Instant WhatsApp Booking
@@ -242,7 +242,7 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="flex items-center gap-1 text-center sm:text-left">
             <span>© {new Date().getFullYear()} {config.businessName}. All rights reserved. Crafted with</span>
-            <Heart className="w-3.5 h-3.5 text-[#00b2d4] fill-[#00b2d4] mx-0.5" />
+            <Heart className="w-3.5 h-3.5 text-[#10b981] fill-[#10b981] mx-0.5" />
             <span>for Pakistani Travelers.</span>
           </div>
 

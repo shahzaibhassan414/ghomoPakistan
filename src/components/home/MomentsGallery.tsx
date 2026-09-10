@@ -10,7 +10,7 @@ export default function MomentsGallery() {
   const [selectedImage, setSelectedImage] = useState<{ title: string; location: string; image: string } | null>(null);
 
   return (
-    <section className="py-14 sm:py-20 bg-slate-900 text-white relative">
+    <section className="py-14 sm:py-20 bg-[#021c10] text-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5">
@@ -18,14 +18,14 @@ export default function MomentsGallery() {
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-2">
               Moments From The Road
             </h2>
-            <p className="text-slate-400 text-xs sm:text-base max-w-xl">
+            <p className="text-slate-300 text-xs sm:text-base max-w-xl">
               A glimpse beyond the itinerary — mountain summits, shared laughs, starry bonfires, and lifelong bonds made along the road.
             </p>
           </div>
 
           <Link
             href="/gallery"
-            className="inline-flex items-center gap-2 text-sm font-extrabold text-[#00b2d4] hover:text-[#0ecaee] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-extrabold text-[#34d399] hover:text-[#10b981] transition-colors"
           >
             <span>View Full Community Wall</span>
             <ArrowRight className="w-4 h-4" />
@@ -38,7 +38,7 @@ export default function MomentsGallery() {
             <div
               key={idx}
               onClick={() => setSelectedImage(moment)}
-              className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-slate-800 border border-white/10 hover:border-[#00b2d4]/60 shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-slate-800 border border-white/10 hover:border-[#059669]/60 shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
               <Image
                 src={moment.image}
@@ -56,7 +56,7 @@ export default function MomentsGallery() {
               </div>
 
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <div className="flex items-center gap-1.5 text-xs text-[#00b2d4] font-bold mb-1">
+                <div className="flex items-center gap-1.5 text-xs text-[#34d399] font-bold mb-1">
                   <MapPin className="w-3.5 h-3.5" />
                   <span>{moment.location}</span>
                 </div>
@@ -94,10 +94,10 @@ export default function MomentsGallery() {
                 />
               </div>
 
-              <div className="p-6 bg-slate-900 flex items-center justify-between">
+              <div className="p-6 bg-[#042c19] flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-white">{selectedImage.title}</h3>
-                  <div className="flex items-center gap-1 text-sm text-[#00b2d4]">
+                  <div className="flex items-center gap-1 text-sm text-[#34d399]">
                     <MapPin className="w-4 h-4" />
                     <span>{selectedImage.location}</span>
                   </div>
@@ -105,7 +105,7 @@ export default function MomentsGallery() {
 
                 <Link
                   href="/packages"
-                  className="px-5 py-2.5 rounded-full bg-[#00b2d4] hover:bg-[#0ecaee] text-white font-bold text-xs uppercase"
+                  className="px-5 py-2.5 rounded-full bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs uppercase"
                 >
                   Join Next Trip
                 </Link>
